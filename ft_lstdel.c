@@ -16,12 +16,15 @@ void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*tmp;
 
-	while (*alst)
+	if (alst && *alst && del)
 	{
-		tmp = *alst;
-		del((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		*alst = tmp->next;
+		while (*alst)
+		{
+			tmp = *alst;
+			del((*alst)->content, (*alst)->content_size);
+			free(*alst);
+			*alst = tmp->next;
+		}
+		*alst = NULL;
 	}
-	alst = NULL;
 }

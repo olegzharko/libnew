@@ -10,17 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_wrdln(char *str, int index, char c)
 {
 	int	count;
 
 	count = 0;
-	while (str[index] != c && str[index])
+	if (str)
 	{
-		count++;
-		index++;
+		while (str[index] != c && str[index])
+		{
+			count++;
+			index++;
+		}
 	}
 	return (count);
 }

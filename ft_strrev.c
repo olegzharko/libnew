@@ -19,19 +19,21 @@ char		*ft_strrev(char *str)
 	char	tmp[ft_strlen(str)];
 
 	i = 0;
-	if (!str || !*str)
-		return (str);
-	while (str[i])
+	if (str)
 	{
-		tmp[i] = str[i];
-		i++;
+		while (str[i])
+		{
+			tmp[i] = str[i];
+			i++;
+		}
+		irev = i - 1;
+		i = 0;
+		while (i != irev + 1)
+		{
+			str[i] = tmp[irev - i];
+			i++;
+		}		
 	}
-	irev = i - 1;
-	i = 0;
-	while (i != irev + 1)
-	{
-		str[i] = tmp[irev - i];
-		i++;
-	}
+
 	return (str);
 }
